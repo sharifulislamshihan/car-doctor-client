@@ -1,16 +1,3 @@
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-import './styles.css';
-
-// import required modules
-import { Pagination, Navigation } from 'swiper/modules';
-
 // import image
 import img1 from '../../../assets/images/banner/1.jpg'
 import img2 from '../../../assets/images/banner/2.jpg'
@@ -21,25 +8,68 @@ import img6 from '../../../assets/images/banner/6.jpg'
 
 const Banner = () => {
     return (
-        <div>
-            <Swiper
-                slidesPerView={1}
-                spaceBetween={30}
-                loop={true}
-                pagination={{
-                    clickable: true,
-                }}
-                navigation={true}
-                modules={[Pagination, Navigation]}
-                className="mySwiper"
-            >
-                <SwiperSlide> {img1} </SwiperSlide>
-                <SwiperSlide> {img2} </SwiperSlide>
-                <SwiperSlide> {img3} </SwiperSlide>
-                <SwiperSlide> {img4} </SwiperSlide>
-                <SwiperSlide> {img5} </SwiperSlide>
-                <SwiperSlide> {img6} </SwiperSlide>
-            </Swiper>
+        <div className="carousel w-full">
+
+            {/* img 1 */}
+            <div id="slide1" className="carousel-item relative w-full">
+                <img src={img1} className="w-full" />
+                <div className="absolute flex justify-end gap-5 transform -translate-y-1/2 left-5 right-5 bottom-0">
+                    <a href="#slide6" className="btn btn-circle text-xl hover:bg-orange-600 hover:border-orange-600 hover:text-white ">❮</a>
+                    <a href="#slide2" className="btn btn-circle text-xl hover:bg-orange-600 hover:border-orange-600 hover:text-white ">❯</a>
+                </div>
+            </div>
+
+            {/* img 2 */}
+
+            <div id="slide2" className="carousel-item relative w-full">
+                <img src={img2} className="w-full" />
+                <div className="absolute flex justify-end gap-5 transform -translate-y-1/2 left-5 right-5 bottom-0">
+                    <a href="#slide1" className="btn btn-circle text-xl hover:bg-orange-600 hover:border-orange-600 hover:text-white ">❮</a>
+                    <a href="#slide3" className="btn btn-circle text-xl hover:bg-orange-600 hover:border-orange-600 hover:text-white ">❯</a>
+                </div>
+            </div>
+
+            {/* img 3 */}
+
+            <div id="slide3" className="carousel-item relative w-full">
+                <img src={img3} className="w-full" />
+                <div className="absolute flex justify-end gap-5 transform -translate-y-1/2 left-5 right-5 bottom-0">
+                    <a href="#slide2" className="btn btn-circle text-xl hover:bg-orange-600 hover:border-orange-600 hover:text-white ">❮</a>
+                    <a href="#slide4" className="btn btn-circle text-xl hover:bg-orange-600 hover:border-orange-600 hover:text-white ">❯</a>
+                </div>
+            </div>
+
+            {/* img 4 */}
+
+            <div id="slide4" className="carousel-item relative w-full">
+                <img src={img4} className="w-full" />
+                <div className="absolute flex justify-end gap-5 transform -translate-y-1/2 left-5 right-5 bottom-0">
+                    <a href="#slide3" className="btn btn-circle text-xl hover:bg-orange-600 hover:border-orange-600 hover:text-white ">❮</a>
+                    <a href="#slide5" className="btn btn-circle text-xl hover:bg-orange-600 hover:border-orange-600 hover:text-white ">❯</a>
+                </div>
+
+                {/* img 5 */}
+
+                <div id="slide5" className="carousel-item relative w-full">
+                    <img src={img5} className="w-full" />
+                    <div className="absolute flex justify-end gap-5 transform -translate-y-1/2 left-5 right-5 bottom-0">
+                        <a href="#slide4" className="btn btn-circle text-xl hover:bg-orange-600 hover:border-orange-600 hover:text-white ">❮</a>
+                        <a href="#slide6" className="btn btn-circle text-xl hover:bg-orange-600 hover:border-orange-600 hover:text-white ">❯</a>
+                    </div>
+                </div>
+
+                {/* img 6 */}
+
+                <div id="slide6" className="carousel-item relative w-full">
+                    <img src={img6} className="w-full" />
+                    <div className="absolute flex justify-end gap-5 transform -translate-y-1/2 left-5 right-5 bottom-0">
+                        <a href="#slide5" className="btn btn-circle text-xl hover:bg-orange-600 hover:border-orange-600 hover:text-white ">❮</a>
+                        <a href="#slide1" className="btn btn-circle text-xl hover:bg-orange-600 hover:border-orange-600 hover:text-white ">❯</a>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     );
 };
