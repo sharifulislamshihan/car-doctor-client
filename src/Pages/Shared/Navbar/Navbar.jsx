@@ -5,6 +5,9 @@ const Navbar = () => {
     const NavItem = <>
         <li><Link className="text-lg font-semibold" to='/'>Home</Link></li>
         <li><Link className="text-lg font-semibold" to='/about'>About</Link></li>
+        <li><Link className="text-lg font-semibold" to='/services'>Services</Link></li>
+        <li><Link className="text-lg font-semibold" to='/blog'>Blog</Link></li>
+        <li><Link className="text-lg font-semibold" to='/contact'>Contact</Link></li>
     </>
     return (
         <div className="navbar bg-base-100">

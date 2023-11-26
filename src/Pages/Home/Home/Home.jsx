@@ -1,5 +1,6 @@
 import Footer from "../../Shared/Footer/Footer";
 import Navbar from "../../Shared/Navbar/Navbar";
+import AboutUs from "../AboutUs/AboutUs/AboutUs";
 import Banner from "../Banner/Banner";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
         <div>
             <Navbar></Navbar>
             <Banner></Banner>
+            <AboutUs></AboutUs>
             <Footer></Footer>
         </div>
     );
