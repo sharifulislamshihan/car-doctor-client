@@ -5,6 +5,7 @@ import Banner from "../Banner/Banner";
 import ContactInfo from "../ContactInfo/ContactInfo";
 import OurProduct from "../OurProduct/OurProduct";
 import ServicesHome from "../ServicesHome/ServicesHome";
+import Team from "../Team/Team";
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <ServicesHome></ServicesHome>
             <ContactInfo></ContactInfo>
             <OurProduct></OurProduct>
+            <Team></Team>
             <Footer></Footer>
         </div>
     );
