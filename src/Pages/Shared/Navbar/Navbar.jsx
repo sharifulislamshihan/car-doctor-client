@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from '../../../assets/logo.svg'
+import { FaSearch, FaShoppingBag } from "react-icons/fa";
 
 const Navbar = () => {
     const NavItem = <>
@@ -29,7 +30,9 @@ const Navbar = () => {
                     {NavItem}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end gap-5">
+            <FaShoppingBag className="text-xl"></FaShoppingBag>
+            <FaSearch className="text-xl"></FaSearch>
             <button className="btn btn-outline border border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811] hover:text-white">Appointment</button>
             </div>
         </div>
