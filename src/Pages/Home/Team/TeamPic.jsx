@@ -12,7 +12,7 @@ import './styles.css';
 // import required modules
 import { Navigation } from 'swiper/modules';
 import { useState, useEffect } from 'react';
-import { FaFacebook, FaInstagram, FaInstagramSquare, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const TeamPic = () => {
     const [slides, setSlides] = useState([]);
@@ -27,12 +27,22 @@ const TeamPic = () => {
     return (
         <div>
             <Swiper
-                slidesPerView={3}
+                //slidesPerView={3}
                 centeredSlides={true}
                 spaceBetween={30}
                 navigation={true}
                 modules={[Navigation]}
                 className="mySwiper"
+                breakpoints={{
+                    // When window width is >= 768px (for tablets and larger screens)
+                    768: {
+                        slidesPerView: 3,
+                    },
+                    // When window width is < 768px (for small screens and mobile devices)
+                    0: {
+                        slidesPerView: 1,
+                    },
+                }}
             >
                 {
                     slides.map(slide => (
