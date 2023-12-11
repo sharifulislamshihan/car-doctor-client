@@ -1,8 +1,21 @@
 import { Link } from "react-router-dom";
 import logo from '../../../assets/logo.svg'
 import { FaSearch, FaShoppingBag } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+    
+    const handleLogOut = () =>{
+        logOut()
+        .then()
+        .error(error => {
+            console.error(error);
+        })
+    }
+
     const NavItem = <>
         <li><Link className="text-lg font-semibold" to='/'>Home</Link></li>
         <li><Link className="text-lg font-semibold" to='/about'>About</Link></li>
@@ -31,9 +44,18 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-5">
-            <FaShoppingBag className="text-xl"></FaShoppingBag>
-            <FaSearch className="text-xl"></FaSearch>
-            <button className="btn btn-outline border border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811] hover:text-white">Appointment</button>
+                <FaShoppingBag className="text-xl"></FaShoppingBag>
+                <FaSearch className="text-xl"></FaSearch>
+                <div className="flex flex-col gap-3 md:flex-row">
+                    <>
+                        {
+                            user?.email ? <Link onClick={handleLogOut} className="btn btn-outline border border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811] hover:text-white btn-sm md:btn-md">Log Out</Link>
+                                :
+                                <Link className="btn btn-outline border border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811] hover:text-white btn-sm md:btn-md " to='/login'>Login</Link>
+                        }
+                    </>
+                    <button className="btn btn-outline border border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811] hover:text-white btn-sm md:btn-md ">Appointment</button>
+                </div>
             </div>
         </div>
     );
