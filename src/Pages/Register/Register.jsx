@@ -5,6 +5,7 @@ import google from '../../assets/icons/google.png'
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
+import Navbar from '../Shared/Navbar/Navbar';
 
 const Register = () => {
 
@@ -30,6 +31,7 @@ const Register = () => {
 
     return (
         <div>
+            <Navbar></Navbar>
             <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row gap-10">
                     <div className="w-1/2 text-center lg:text-left">

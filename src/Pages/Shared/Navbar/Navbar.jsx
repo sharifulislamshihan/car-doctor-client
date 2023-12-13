@@ -7,13 +7,13 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    
-    const handleLogOut = () =>{
+
+    const handleLogOut = () => {
         logOut()
-        .then()
-        .error(error => {
-            console.error(error);
-        })
+            .then()
+            .error(error => {
+                console.error(error);
+            })
     }
 
     const NavItem = <>
@@ -22,6 +22,7 @@ const Navbar = () => {
         <li><Link className="text-lg font-semibold" to='/services'>Services</Link></li>
         <li><Link className="text-lg font-semibold" to='/blog'>Blog</Link></li>
         <li><Link className="text-lg font-semibold" to='/contact'>Contact</Link></li>
+        <li><Link className="text-lg font-semibold" to='/order-bookings'>My Order</Link></li>
     </>
     return (
         <div className="navbar bg-base-100">
@@ -49,7 +50,10 @@ const Navbar = () => {
                 <div className="flex flex-col gap-3 md:flex-row">
                     <>
                         {
-                            user?.email ? <Link onClick={handleLogOut} className="btn btn-outline border border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811] hover:text-white btn-sm md:btn-md">Log Out</Link>
+                            user?.email ?
+                                <>
+                                    <Link onClick={handleLogOut} className="btn btn-outline border border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811] hover:text-white btn-sm md:btn-md">Log Out</Link>
+                                </>
                                 :
                                 <Link className="btn btn-outline border border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811] hover:text-white btn-sm md:btn-md " to='/login'>Login</Link>
                         }
