@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import Navbar from '../Shared/Navbar/Navbar';
 import { AuthContext } from '../../Providers/AuthProvider';
 import OrderList from './OrderList';
+import Swal from 'sweetalert2';
 
 const BookingOrder = () => {
 
@@ -16,6 +17,38 @@ const BookingOrder = () => {
                 setOrders(data);
             })
     }, [])
+
+
+    const handleDelete = id => {
+        // console.log(id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/bookings/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                if (data.deletedCount > 0) {
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your Order has been deleted.",
+                        icon: "success"
+                    });
+                    const remaining = orders.filter(order => order._id !== id);
+                    setOrders(remaining);
+                }
+            }
+        });
+    }
+
 
     return (
         <div>
@@ -37,6 +70,7 @@ const BookingOrder = () => {
                             orders.map(order => <OrderList
                                 key={order._id}
                                 order={order}
+                                handleDelete = {handleDelete}
                             ></OrderList>)
                         }
                     </tbody>
